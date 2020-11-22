@@ -3,9 +3,9 @@
 one:
   name: MyString
   price: MyString
-  ShoppingCart: one
+  image: MyString
 
 two:
   name: MyString
   price: MyString
-  ShoppingCart: two
+  image: MyString

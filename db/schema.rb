@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_123816) do
+ActiveRecord::Schema.define(version: 2020_11_21_121829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 2020_11_20_123816) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "price"
-    t.bigint "shopping_cart_id", null: false
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
-    t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
   end
 
   create_table "shopping_carts", force: :cascade do |t|
@@ -31,5 +29,4 @@ ActiveRecord::Schema.define(version: 2020_11_20_123816) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "items", "shopping_carts"
 end
