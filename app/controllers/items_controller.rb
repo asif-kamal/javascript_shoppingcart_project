@@ -4,4 +4,13 @@ class ItemsController < ApplicationController
         @items = Item.all
         render json: @items
     end
+
+    def show
+        @item = Item.find(params[:id])
+    end
+
+    def create
+        @item = Item.create(item_params)
+    end
+
 end
