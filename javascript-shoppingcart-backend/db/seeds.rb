@@ -6,6 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+categories = [
+    {
+        "id": 1,
+        "name": "Competition Training Mats"
+    },
+
+    {
+        "id": 2,
+        "name": "Climbing Ropes"
+    },
+
+    {
+        "id": 3,
+        "name": "Men's Equipment"
+    },
+
+    {
+        "id": 4,
+        "name": "Women's Equipment"
+    },
+
+    {
+        "id": 5,
+        "name": "Tumbling Aids"
+    }
+]
+
+categories.each do |category|
+    Category.create(name: category[:name])
+end
 
 items = [
     {
@@ -13,14 +43,15 @@ items = [
         "name": "Ninja Cargo Net",
         "price": 5,
         "image": "https://www.gymsupply.com/images/products/detail/PPseries_cargonet21.jpg",
-
+        "category_id": 5
     },
 
     {
         "id": 2,
         "name": "Pommel Horse",
         "price": 4150,
-        "image": "https://www.gymsupply.com/images/products/detail/EvoPommelangle.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/EvoPommelangle.jpg",
+        "category_id": 4
 
     },
 
@@ -28,14 +59,16 @@ items = [
         "id": 3,
         "name": "The Scoop Inline System",
         "price": 1016,
-        "image": "https://www.gymsupply.com/images/products/detail/the_scoop_1.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/the_scoop_1.jpg",
+        "category_id": 4
     },
 
     {
         "id": 4,
         "name": "Trainer Suede Center Pad",
         "price": 185,
-        "image": "https://www.gymsupply.com/images/products/detail/TTrainerSuede%20detail.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/TTrainerSuede%20detail.jpg",
+        "category_id": 3
 
     },
 
@@ -43,14 +76,16 @@ items = [
         "id": 5,
         "name": "The Original Block: Multi Pack",
         "price": 349,
-        "image": "https://www.gymsupply.com/images/products/detail/OriginalBlock6Multi%20detail.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/OriginalBlock6Multi%20detail.jpg",
+        "category_id": 3
     },
 
     {
         "id": 6,
         "name": "Climbing Ropes Accessories",
         "price": 7,
-        "image": "https://www.gymsupply.com/images/products/detail/dgsropechoices.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/dgsropechoices.jpg",
+        "category_id": 3
     },
 
     {
@@ -58,30 +93,34 @@ items = [
         "name": "Rock Wall Hand Holds",
         "price": 78,
         "image": "https://www.gymsupply.com/images/products/detail/routeholds.JPG",
+        "category_id": 1
     },
 
     {
         "id": 8,
         "name": "American Classic Carpet",
         "price": 12470,
-        "image": "https://www.gymsupply.com/images/products/detail/classiccarpet.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/classiccarpet.jpg",
+        "category_id": 1
     },
 
     {
         "id": 9,
         "name": "Prep Mat",
         "price": 160,
-        "image": "https://www.gymsupply.com/images/products/detail/PrepMat%20detail.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/PrepMat%20detail.jpg",
+        "category_id": 2
     },
 
     {
         "id": 10,
         "name": "Catcher",
         "price": 1795,
-        "image": "https://www.gymsupply.com/images/products/detail/TheCatcher%20detail.jpg"
+        "image": "https://www.gymsupply.com/images/products/detail/TheCatcher%20detail.jpg",
+        "category_id": 2
     }
 ]
 
 items.each do |item| 
-   Item.create(name: item[:name], image: item[:image], price: item[:price])
+   Item.create(name: item[:name], image: item[:image], price: item[:price], category_id: item[:category_id])
 end
