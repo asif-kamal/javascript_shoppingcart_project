@@ -1,5 +1,6 @@
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
+const CATEGORIES_URL = `${CATEGORIES_URL}/api/v1/categories`
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
@@ -10,15 +11,20 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => renderItemCards(data));
     }
   
+    function fetchCategories(){
+        fetch (`${}`)
+    }
 
 function renderItemCards(items){
     let main = document.querySelector('main')
+
     items.forEach((item, idx) => main.innerHTML += (itemCard(item, idx)))
 }
 
 
 
 function itemCard(item, idx){
+
     return `<div class ="card">
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
@@ -31,7 +37,11 @@ function itemCard(item, idx){
 
 }
 
-
+function selCategory(){
+    let selectedCat = document.getElementById("selCategory");
+    let category = selectedCat.value;
+    
+}
 
 // const api = new ApiService("http://localhost:3000")
 // console.log(api)
