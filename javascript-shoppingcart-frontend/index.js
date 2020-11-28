@@ -1,4 +1,4 @@
-const BACKEND_URL = 'localhost:3000';
+const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/items`;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => renderItemCards(data));
     }
-  })
+  
 
 function renderItemCards(items){
     let main = document.querySelector('main')
@@ -30,6 +30,10 @@ function itemCard(item, idx){
               </div>`
 
 }
+
+// const api = new ApiService("http://localhost:3000")
+// console.log(api)
+});
 
 //Build code for each item. 
 
