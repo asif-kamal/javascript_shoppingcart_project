@@ -1,5 +1,5 @@
 const BACKEND_URL = 'http://localhost:3000';
-const ITEMS_URL = `${BACKEND_URL}/items`;
+const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
@@ -30,6 +30,8 @@ function itemCard(item, idx){
               </div>`
 
 }
+
+
 
 // const api = new ApiService("http://localhost:3000")
 // console.log(api)
