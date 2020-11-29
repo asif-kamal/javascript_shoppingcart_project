@@ -1,8 +1,8 @@
 class Api::V1::CategoriesController < ApplicationController
 
     def index
-        @categories = Category.all
-        render json: @categories
+        categories = Category.all
+        render json: categories, include: [:items]
     end
 
 
@@ -10,6 +10,8 @@ class Api::V1::CategoriesController < ApplicationController
         @category = Category.create(category_params)
         render json: @category
     end
+
+    
 
     private
 

@@ -1,19 +1,42 @@
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
-const CATEGORIES_URL = `${CATEGORIES_URL}/api/v1/categories`
+const CATEGORIES_URL = `${BACKEND_URL}/api/v1/categories`
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
+    fetchCategories()
+
+    
 
     function fetchItems() {
         fetch (`${ITEMS_URL}`)
         .then(response => response.json())
         .then(data => renderItemCards(data));
     }
+
+    function selCategory(){
+        let selectedCat = document.getElementById("selCategory");
+        let category = selectedCat.value;
+        return category
+        
+    }
+
+    function selItemsBasedOnCategory(categories) {
+        const dropDownCat = selCategory()
+        categories.forEach((category) => {
+            if (`${category.name}` === dropDownCat){
+            renderItemCards(category.items)
+        }
+    })
+    }
   
     function fetchCategories(){
-        fetch (`${}`)
+        fetch (`${CATEGORIES_URL}`)
+        .then(response => response.json())
+        .then(data => selItemsBasedOnCategory(data))
     }
+
+    
 
 function renderItemCards(items){
     let main = document.querySelector('main')
@@ -37,11 +60,6 @@ function itemCard(item, idx){
 
 }
 
-function selCategory(){
-    let selectedCat = document.getElementById("selCategory");
-    let category = selectedCat.value;
-    
-}
 
 // const api = new ApiService("http://localhost:3000")
 // console.log(api)
