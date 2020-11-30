@@ -4,9 +4,24 @@ const CATEGORIES_URL = `${BACKEND_URL}/api/v1/categories`
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
-    fetchCategories()
-
     
+    attachSelectCategoryListener()
+
+
+
+
+    function attachSelectCategoryListener() {
+        const selectButton = document.getElementsByClassName('selectCategory')[0]
+        // console.log(selectButton)
+        selectButton.addEventListener('click', () =>{
+            console.log("Clicked")
+        })
+        
+        
+    }
+
+
+
 
     function fetchItems() {
         fetch (`${ITEMS_URL}`)
@@ -14,7 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => renderItemCards(data));
     }
 
+
+
     function selCategory(){
+        
         let selectedCat = document.getElementById("selCategory");
         let category = selectedCat.value;
         return category
