@@ -11,11 +11,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     function attachSelectCategoryListener() {
-        const selectButton = document.getElementsByClassName('selectCategory')[0]
+        const form = document.getElementById('select-form')
         // console.log(selectButton)
-        selectButton.addEventListener('click', () =>{
-            console.log("Clicked")
-        })
+        form.addEventListener('submit', fetchItemsByCategory)
         
         
     }
@@ -48,8 +46,10 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     }
   
-    function fetchCategories(){
-        fetch (`${CATEGORIES_URL}`)
+    function fetchItemsByCategory(event){
+        event.preventDefault()
+        const id = event.target.selcat.value
+        fetch (`${CATEGORIES_URL}/${id}/items`)
         .then(response => response.json())
         .then(data => selItemsBasedOnCategory(data))
     }
@@ -72,9 +72,13 @@ function itemCard(item, idx){
     <p class="price">"${item.price}"</p>
     <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-secondary">♡</button>
-    <button type="button" class="btn btn-secondary">+</button>
-    <button type="button" class="btn btn-secondary">-</button>
+    <button type="button" class="btn btn-secondary">Add to Cart</button>
+    
               </div>`
+
+}
+
+function addToCart(){
 
 }
 

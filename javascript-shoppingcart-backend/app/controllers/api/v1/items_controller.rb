@@ -1,8 +1,12 @@
 class Api::V1::ItemsController < ApplicationController
 
     def index
+        if params[:category_id] 
+            @items = Item.where(category_id: params[:category_id])
+        else 
         @items = Item.all
         render json: @items
+        end
     end
 
     def show
