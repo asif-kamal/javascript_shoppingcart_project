@@ -1,3 +1,5 @@
+// const app = new App()
+
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
 const CATEGORIES_URL = `${BACKEND_URL}/api/v1/categories`
@@ -6,6 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
     
     attachSelectCategoryListener()
+    addToQuantity()
 
 
 
@@ -29,35 +32,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-    function selCategory(){
+    // function selCategory(){
         
-        let selectedCat = document.getElementById("selCategory");
-        let category = selectedCat.value;
-        return category
+    //     let selectedCat = document.getElementById("selCategory");
+    //     let category = selectedCat.value;
+    //     return category
         
-    }
+    // }
 
-    function selItemsBasedOnCategory(categories) {
-        const dropDownCat = selCategory()
-        categories.forEach((category) => {
-            if (`${category.name}` === dropDownCat){
-            renderItemCards(category.items)
-        }
-    })
-    }
+    
+    
   
     function fetchItemsByCategory(event){
         event.preventDefault()
         const id = event.target.selcat.value
         fetch (`${CATEGORIES_URL}/${id}/items`)
         .then(response => response.json())
-        .then(data => selItemsBasedOnCategory(data))
+        .then(data => renderItemCards(data))
     }
 
     
 
 function renderItemCards(items){
     let main = document.querySelector('main')
+    main.innerHTML = ""
 
     items.forEach((item, idx) => main.innerHTML += (itemCard(item, idx)))
 }
@@ -69,14 +67,30 @@ function itemCard(item, idx){
     return `<div class ="card">
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
-    <p class="price">"${item.price}"</p>
+    <p class="price">$${item.price}</p>
+    <p class="quantity">Quantity: ${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary">♡</button>
+    <button type="button" id="plus" class="btn btn-secondary">+</button>
+    <button type="button" id="minus" class="btn btn-secondary">-</button>
     <button type="button" class="btn btn-secondary">Add to Cart</button>
     
               </div>`
 
 }
+
+
+
+function addToQuantity(){
+    let plus = document.getElementById('plus');
+    plus.addEventListener((e) => function(e) {
+        let quantity = document.getElementsByClassName("quantity")
+        itemQuantity = event.target.dataset.quantity
+        itemQuantity++
+
+    })
+    }
+
+
 
 function addToCart(){
 
