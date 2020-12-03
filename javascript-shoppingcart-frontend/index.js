@@ -90,11 +90,11 @@ function addToQuantity(item){
     main.addEventListener("click", (e) => {
         
         if (e.target.classList.contains("plus")){
-           let itemQuantity = document.getElementsByClassName()
-           debugger
+           let itemQuantity = e.target.parentElement.previousElementSibling.innerHTML
            itemQuantity++
+           e.target.parentElement.previousElementSibling.innerHTML = itemQuantity
 
-           e.target.parentElement.parentElement.innerHTML = itemQuantity
+          
             
         }
         if (e.target.classList.contains("minus")){
