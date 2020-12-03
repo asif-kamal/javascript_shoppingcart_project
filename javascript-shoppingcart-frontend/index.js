@@ -123,12 +123,14 @@ function addToCart(){
             let cell2 = tableRow.insertCell(1)
             let cell3 = tableRow.insertCell(2)
             let cell4 = tableRow.insertCell(3)
+            let cell5 = tableRow.insertCell(4)
             
             cell1.innerHTML = `${e.target.parentElement.parentElement.firstElementChild.innerHTML}`;
             cell2.innerHTML = `${e.target.parentElement.parentElement.children[2].innerHTML}`;
             cell3.innerHTML = `${e.target.parentElement.parentElement.children[3].innerHTML}`;
             cell4.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
-            <button type="button" class="minus btn btn-secondary">-</button>`
+            <button type="button" class="minus btn btn-secondary">-</button>`;
+            cell5.innerHTML = `<button type="button" class="remove btn btn-secondary">ⓧ</button>`
         }      
     })
 
