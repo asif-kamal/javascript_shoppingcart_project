@@ -11,6 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
     changeQuantity()
     addToCart()
     removeItem()
+    changeTotal()
+    
 
 
 
@@ -72,7 +74,7 @@ function itemCard(item, idx){
     return `<div class ="card">
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
-    <p class="price">Price: $${item.price}</p>
+    <p class="price">${item.price}</p>
     <p class="quantity">${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
@@ -132,7 +134,9 @@ function addToCart(){
             cell4.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
             <button type="button" class="minus btn btn-secondary">-</button>`;
             cell5.innerHTML = `<button type="button" class="remove btn btn-secondary">ⓧ</button>`
-        }      
+
+        
+        }
     })
 
 }
@@ -144,11 +148,42 @@ function removeItem(){
     table.addEventListener("click", (e) => {
         if (e.target.classList.contains("remove")){
             e.target.parentElement.parentElement.remove()
+            const totalPrice = document.getElementsByClassName('cart-total-price')[0]
+            totalPrice.innerHTML = 0
         }
     })
 }
 
+function changeTotal(){
 
+    let table = document.getElementById('cart-items')
+    
+    table.addEventListener("click", (e) => {
+        if (e.target.classList.contains("plus") || e.target.classList.contains("minus")){
+            let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.innerHTML, 10)
+            let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
+            
+
+            const totalPrice = document.getElementsByClassName('cart-total-price')[0]
+            totalPrice.innerHTML = (itemPrice * itemQuantity)
+        }
+    })
+    // if (e.target.classList.contains("minus")){
+    //     let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.innerHTML, 10)
+    //     let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
+        
+
+    //     const totalPrice = document.getElementsByClassName('cart-total-price')[0]
+    //     totalPrice.innerHTML = (itemPrice * itemQuantity)
+    }
+
+     
+     
+    
+
+
+
+    
 
 // const api = new ApiService("http://localhost:3000")
 // console.log(api)
