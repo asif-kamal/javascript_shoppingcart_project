@@ -70,8 +70,8 @@ function itemCard(item, idx){
     <p class="price">$${item.price}</p>
     <p class="quantity">Quantity: ${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" id="plus" class="btn btn-secondary">+</button>
-    <button type="button" id="minus" class="btn btn-secondary">-</button>
+    <button type="button"  class= "plus btn btn-secondary">+</button>
+    <button type="button"  class="minus btn btn-secondary">-</button>
     <button type="button" class="btn btn-secondary">Add to Cart</button>
     
               </div>`
@@ -81,11 +81,16 @@ function itemCard(item, idx){
 
 
 function addToQuantity(){
-    let plus = document.getElementById('plus');
-    plus.addEventListener((e) => function(e) {
-        let quantity = document.getElementsByClassName("quantity")
-        itemQuantity = event.target.dataset.quantity
-        itemQuantity++
+   
+    const main = document.querySelector('main')
+     
+    main.addEventListener("click", (e) => {
+        
+        if (e.target.classList.contains("plus")){
+            console.log("plus button clicked")
+        }
+        
+       console.log("clicked")
 
     })
     }
