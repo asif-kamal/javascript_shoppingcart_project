@@ -72,7 +72,7 @@ function itemCard(item, idx){
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
     <p class="price">Price: $${item.price}</p>
-    <p>Quantity:</p><p class="quantity">${item.quantity}</p>
+    <p class="quantity">${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
     
@@ -84,9 +84,9 @@ function itemCard(item, idx){
 
 function changeQuantity(){
    
-    const main = document.querySelector('main')
+    const table = document.getElementById('cart-items')
      
-    main.addEventListener("click", (e) => {
+    table.addEventListener("click", (e) => {
         
         if (e.target.classList.contains("plus")){
            let itemQuantity = e.target.parentElement.previousElementSibling.innerHTML
@@ -126,7 +126,7 @@ function addToCart(){
             
             cell1.innerHTML = `${e.target.parentElement.parentElement.firstElementChild.innerHTML}`;
             cell2.innerHTML = `${e.target.parentElement.parentElement.children[2].innerHTML}`;
-            cell3.innerHTML = `${e.target.parentElement.parentElement.children[4].innerHTML}`;
+            cell3.innerHTML = `${e.target.parentElement.parentElement.children[3].innerHTML}`;
             cell4.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
             <button type="button" class="minus btn btn-secondary">-</button>`
         }      
