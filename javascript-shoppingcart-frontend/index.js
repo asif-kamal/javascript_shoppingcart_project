@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     attachSelectCategoryListener()
     changeQuantity()
     addToCart()
+    removeItem()
 
 
 
@@ -134,6 +135,17 @@ function addToCart(){
         }      
     })
 
+}
+
+function removeItem(){
+
+    const table = document.getElementById('cart-items')
+     
+    table.addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove")){
+            e.target.parentElement.parentElement.remove()
+        }
+    })
 }
 
 
