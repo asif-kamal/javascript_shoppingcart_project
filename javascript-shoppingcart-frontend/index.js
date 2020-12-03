@@ -70,9 +70,11 @@ function itemCard(item, idx){
     return `<div class ="card">
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
-    <p class="price">$${item.price}</p>
+    <p class="price">Price: $${item.price}</p>
+    <p>Quantity:</p><p class="quantity">${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
-   
+    <button type="button" id="${idx}" class="plus btn btn-secondary">+</button>
+    <button type="button" id="${idx}" class="minus btn btn-secondary">-</button>
     <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
     
               </div>`
@@ -88,9 +90,11 @@ function addToQuantity(item){
     main.addEventListener("click", (e) => {
         
         if (e.target.classList.contains("plus")){
-            debugger
-           e.target.dataset.parent().value++
-           
+           let itemQuantity = document.getElementsByClassName()
+           debugger
+           itemQuantity++
+
+           e.target.parentElement.parentElement.innerHTML = itemQuantity
             
         }
         if (e.target.classList.contains("minus")){
