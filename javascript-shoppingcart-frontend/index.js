@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fetchItems()
     
     attachSelectCategoryListener()
-    addToQuantity()
+    changeQuantity()
     addToCart()
 
 
@@ -74,8 +74,6 @@ function itemCard(item, idx){
     <p class="price">Price: $${item.price}</p>
     <p>Quantity:</p><p class="quantity">${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" id="${idx}" class="plus btn btn-secondary">+</button>
-    <button type="button" id="${idx}" class="minus btn btn-secondary">-</button>
     <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
     
               </div>`
@@ -84,7 +82,7 @@ function itemCard(item, idx){
 
 
 
-function addToQuantity(){
+function changeQuantity(){
    
     const main = document.querySelector('main')
      
@@ -118,12 +116,24 @@ function addToCart(){
     const main = document.querySelector('main')
     main.addEventListener("click", (e) => {
         if (e.target.classList.contains("add")) {
-            let table = document.getElementsByTagName('table')
-            debugger
-        }
+            // debugger
+            let table = document.getElementById('cart-items')
+            const tableRow = table.insertRow(1)
+            let cell1 = tableRow.insertCell(0)
+            let cell2 = tableRow.insertCell(1)
+            let cell3 = tableRow.insertCell(2)
+            let cell4 = tableRow.insertCell(3)
+            
+            cell1.innerHTML = `${e.target.parentElement.parentElement.firstElementChild.innerHTML}`;
+            cell2.innerHTML = `${e.target.parentElement.parentElement.children[2].innerHTML}`;
+            cell3.innerHTML = `${e.target.parentElement.parentElement.children[4].innerHTML}`;
+            cell4.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
+            <button type="button" class="minus btn btn-secondary">-</button>`
+        }      
     })
 
 }
+
 
 
 // const api = new ApiService("http://localhost:3000")
