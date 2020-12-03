@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     attachSelectCategoryListener()
     addToQuantity()
+    addToCart()
 
 
 
@@ -83,7 +84,7 @@ function itemCard(item, idx){
 
 
 
-function addToQuantity(item){
+function addToQuantity(){
    
     const main = document.querySelector('main')
      
@@ -113,6 +114,14 @@ function addToQuantity(item){
 
 
 function addToCart(){
+    
+    const main = document.querySelector('main')
+    main.addEventListener("click", (e) => {
+        if (e.target.classList.contains("add")) {
+            let table = document.getElementsByTagName('table')
+            debugger
+        }
+    })
 
 }
 
