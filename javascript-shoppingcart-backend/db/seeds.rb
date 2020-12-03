@@ -43,7 +43,7 @@ items = [
         "name": "Ninja Cargo Net",
         "price": 5,
         "image": "https://www.gymsupply.com/images/products/detail/PPseries_cargonet21.jpg",
-        "category_id": 5,
+        "category_id": 2,
         "quantity": 0
     },
 
@@ -52,7 +52,7 @@ items = [
         "name": "Pommel Horse",
         "price": 4150,
         "image": "https://www.gymsupply.com/images/products/detail/EvoPommelangle.jpg",
-        "category_id": 4,
+        "category_id": 3,
         "quantity": 0
 
     },
@@ -71,7 +71,7 @@ items = [
         "name": "Trainer Suede Center Pad",
         "price": 185,
         "image": "https://www.gymsupply.com/images/products/detail/TTrainerSuede%20detail.jpg",
-        "category_id": 3,
+        "category_id": 4,
         "quantity": 0
 
     },
@@ -81,7 +81,7 @@ items = [
         "name": "The Original Block: Multi Pack",
         "price": 349,
         "image": "https://www.gymsupply.com/images/products/detail/OriginalBlock6Multi%20detail.jpg",
-        "category_id": 3,
+        "category_id": 5,
         "quantity": 0
     },
 
@@ -90,7 +90,7 @@ items = [
         "name": "Climbing Ropes Accessories",
         "price": 7,
         "image": "https://www.gymsupply.com/images/products/detail/dgsropechoices.jpg",
-        "category_id": 3,
+        "category_id": 2,
         "quantity": 0
     },
 
@@ -99,7 +99,7 @@ items = [
         "name": "Rock Wall Hand Holds",
         "price": 78,
         "image": "https://www.gymsupply.com/images/products/detail/routeholds.JPG",
-        "category_id": 1,
+        "category_id": 2,
         "quantity": 0
     },
 
@@ -117,7 +117,7 @@ items = [
         "name": "Prep Mat",
         "price": 160,
         "image": "https://www.gymsupply.com/images/products/detail/PrepMat%20detail.jpg",
-        "category_id": 2,
+        "category_id": 1,
         "quantity": 0
     },
 

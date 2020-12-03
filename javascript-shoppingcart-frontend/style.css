@@ -1,2 +1,10 @@
+.body{
+    max-width: 500px;
+    margin: auto
+}
 
-
+.card{
+    text-align: center;
+    margin: 1rem 2rem;
+    display: inline-grid
+}

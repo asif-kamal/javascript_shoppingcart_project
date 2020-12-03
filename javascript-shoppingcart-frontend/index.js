@@ -57,7 +57,10 @@ function renderItemCards(items){
     let main = document.querySelector('main')
     main.innerHTML = ""
 
-    items.forEach((item, idx) => main.innerHTML += (itemCard(item, idx)))
+    items.forEach((item, idx) => {
+        main.innerHTML += (itemCard(item, idx))
+        
+    })
 }
 
 
@@ -68,11 +71,9 @@ function itemCard(item, idx){
     <div class ="header" data-id="${idx}"> <p>${item.name}</p>
     <img src="${item.image}" height="150" width="200" alt="" >
     <p class="price">$${item.price}</p>
-    <p class="quantity">Quantity: ${item.quantity}</p>
     <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button"  class= "plus btn btn-secondary">+</button>
-    <button type="button"  class="minus btn btn-secondary">-</button>
-    <button type="button" class="btn btn-secondary">Add to Cart</button>
+   
+    <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
     
               </div>`
 
@@ -80,17 +81,23 @@ function itemCard(item, idx){
 
 
 
-function addToQuantity(){
+function addToQuantity(item){
    
     const main = document.querySelector('main')
      
     main.addEventListener("click", (e) => {
         
         if (e.target.classList.contains("plus")){
-            console.log("plus button clicked")
+            debugger
+           e.target.dataset.parent().value++
+           
+            
+        }
+        if (e.target.classList.contains("minus")){
+            
         }
         
-       console.log("clicked")
+      
 
     })
     }
