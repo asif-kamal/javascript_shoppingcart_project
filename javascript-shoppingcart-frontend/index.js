@@ -98,7 +98,11 @@ function addToQuantity(item){
             
         }
         if (e.target.classList.contains("minus")){
-            
+            let itemQuantity = e.target.parentElement.previousElementSibling.innerHTML
+            if (itemQuantity > 0){
+            itemQuantity--
+            e.target.parentElement.previousElementSibling.innerHTML = itemQuantity
+            }
         }
         
       
