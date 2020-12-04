@@ -44,7 +44,7 @@ items = [
         "price": 5,
         "image": "https://www.gymsupply.com/images/products/detail/PPseries_cargonet21.jpg",
         "category_id": 2,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -53,7 +53,7 @@ items = [
         "price": 4150,
         "image": "https://www.gymsupply.com/images/products/detail/EvoPommelangle.jpg",
         "category_id": 3,
-        "quantity": 0
+        "quantity": 1
 
     },
 
@@ -63,7 +63,7 @@ items = [
         "price": 1016,
         "image": "https://www.gymsupply.com/images/products/detail/the_scoop_1.jpg",
         "category_id": 4,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -72,7 +72,7 @@ items = [
         "price": 185,
         "image": "https://www.gymsupply.com/images/products/detail/TTrainerSuede%20detail.jpg",
         "category_id": 4,
-        "quantity": 0
+        "quantity": 1
 
     },
 
@@ -82,7 +82,7 @@ items = [
         "price": 349,
         "image": "https://www.gymsupply.com/images/products/detail/OriginalBlock6Multi%20detail.jpg",
         "category_id": 5,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -91,7 +91,7 @@ items = [
         "price": 7,
         "image": "https://www.gymsupply.com/images/products/detail/dgsropechoices.jpg",
         "category_id": 2,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -100,7 +100,7 @@ items = [
         "price": 78,
         "image": "https://www.gymsupply.com/images/products/detail/routeholds.JPG",
         "category_id": 2,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -109,7 +109,7 @@ items = [
         "price": 12470,
         "image": "https://www.gymsupply.com/images/products/detail/classiccarpet.jpg",
         "category_id": 1,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -118,7 +118,7 @@ items = [
         "price": 160,
         "image": "https://www.gymsupply.com/images/products/detail/PrepMat%20detail.jpg",
         "category_id": 1,
-        "quantity": 0
+        "quantity": 1
     },
 
     {
@@ -127,7 +127,7 @@ items = [
         "price": 1795,
         "image": "https://www.gymsupply.com/images/products/detail/TheCatcher%20detail.jpg",
         "category_id": 2,
-        "quantity": 0
+        "quantity": 1
     }
 ]
 

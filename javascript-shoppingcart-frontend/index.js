@@ -92,18 +92,18 @@ function changeQuantity(){
     table.addEventListener("click", (e) => {
         
         if (e.target.classList.contains("plus")){
-           let itemQuantity = e.target.parentElement.previousElementSibling.innerHTML
+           let itemQuantity = e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML
            itemQuantity++
-           e.target.parentElement.previousElementSibling.innerHTML = itemQuantity
+           e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML = itemQuantity
 
           
             
         }
         if (e.target.classList.contains("minus")){
-            let itemQuantity = e.target.parentElement.previousElementSibling.innerHTML
+            let itemQuantity = e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML
             if (itemQuantity > 0){
             itemQuantity--
-            e.target.parentElement.previousElementSibling.innerHTML = itemQuantity
+            e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML = itemQuantity
             }
         }
         
@@ -119,7 +119,7 @@ function addToCart(){
     const main = document.querySelector('main')
     main.addEventListener("click", (e) => {
         if (e.target.classList.contains("add")) {
-            // debugger
+            
             let table = document.getElementById('cart-items')
             const tableRow = table.insertRow(1)
             let cell1 = tableRow.insertCell(0)
@@ -127,13 +127,15 @@ function addToCart(){
             let cell3 = tableRow.insertCell(2)
             let cell4 = tableRow.insertCell(3)
             let cell5 = tableRow.insertCell(4)
+            let cell6 = tableRow.insertCell(5)
             
             cell1.innerHTML = `${e.target.parentElement.parentElement.firstElementChild.innerHTML}`;
             cell2.innerHTML = `${e.target.parentElement.parentElement.children[2].innerHTML}`;
             cell3.innerHTML = `${e.target.parentElement.parentElement.children[3].innerHTML}`;
-            cell4.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
+            cell4.innerHTML = 0;
+            cell5.innerHTML = `<button type="button" class="plus btn btn-secondary">+</button>
             <button type="button" class="minus btn btn-secondary">-</button>`;
-            cell5.innerHTML = `<button type="button" class="remove btn btn-secondary">ⓧ</button>`
+            cell6.innerHTML = `<button type="button" class="remove btn btn-secondary">ⓧ</button>`
 
         
         }
@@ -157,15 +159,40 @@ function removeItem(){
 function changeTotal(){
 
     let table = document.getElementById('cart-items')
+   
+   
     
-    table.addEventListener("click", (e) => {
-        if (e.target.classList.contains("plus") || e.target.classList.contains("minus")){
-            let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.innerHTML, 10)
-            let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
-            
 
-            const totalPrice = document.getElementsByClassName('cart-total-price')[0]
-            totalPrice.innerHTML = (itemPrice * itemQuantity)
+    let itemsTotal = 0
+
+    table.addEventListener("click", (e) => {
+        if (e.target.classList.contains("plus")){
+            
+            let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML, 10)
+            let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
+            let itemTotal = e.target.parentElement.parentElement.children[3]
+           
+            
+           
+            
+            const newItemTotal = (itemPrice * itemQuantity)
+            
+            itemTotal.innerHTML = newItemTotal
+            
+            
+        }
+
+        if (e.target.classList.contains("minus")){
+            let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.previousElementSibling.innerHTML, 10)
+            let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
+            let itemTotal = e.target.parentElement.parentElement.children[3]
+            
+           
+            
+            const newItemTotal = (itemPrice * itemQuantity)
+            
+            itemTotal.innerHTML = newItemTotal
+            
         }
     })
     // if (e.target.classList.contains("minus")){
@@ -178,7 +205,9 @@ function changeTotal(){
     }
 
      
-     
+     function updateCartTotal(){
+        const totalPrice = document.getElementsByClassName('cart-total-price')[0]
+     }
     
 
 
