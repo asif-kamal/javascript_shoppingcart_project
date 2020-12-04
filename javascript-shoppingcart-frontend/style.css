@@ -33,3 +33,7 @@ tr:nth-child(even) {
     color:red
 
 }
+
+.price::before{
+    content: "$";
+}
