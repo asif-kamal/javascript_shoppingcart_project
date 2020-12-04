@@ -128,6 +128,7 @@ function addToCart(){
             let cell4 = tableRow.insertCell(3)
             let cell5 = tableRow.insertCell(4)
             let cell6 = tableRow.insertCell(5)
+            cell4.classList = 'item-total'
             
             cell1.innerHTML = `${e.target.parentElement.parentElement.firstElementChild.innerHTML}`;
             cell2.innerHTML = `${e.target.parentElement.parentElement.children[2].innerHTML}`;
@@ -137,7 +138,7 @@ function addToCart(){
             <button type="button" class="minus btn btn-secondary">-</button>`;
             cell6.innerHTML = `<button type="button" class="remove btn btn-secondary">ⓧ</button>`
 
-        
+            
         }
     })
 
@@ -178,7 +179,7 @@ function changeTotal(){
             const newItemTotal = (itemPrice * itemQuantity)
             
             itemTotal.innerHTML = newItemTotal
-            
+            updateCartTotal()
             
         }
 
@@ -192,8 +193,9 @@ function changeTotal(){
             const newItemTotal = (itemPrice * itemQuantity)
             
             itemTotal.innerHTML = newItemTotal
-            
+            updateCartTotal()
         }
+        
     })
     // if (e.target.classList.contains("minus")){
     //     let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.innerHTML, 10)
@@ -207,6 +209,14 @@ function changeTotal(){
      
      function updateCartTotal(){
         const totalPrice = document.getElementsByClassName('cart-total-price')[0]
+        const allItemTotals = document.getElementsByClassName('item-total')
+        let itemsTotal = 0
+
+        for(let itemTotal of allItemTotals) {
+            
+            itemsTotal += parseInt(itemTotal.innerHTML, 10)
+            totalPrice.innerHTML = itemsTotal
+        }
      }
     
 
