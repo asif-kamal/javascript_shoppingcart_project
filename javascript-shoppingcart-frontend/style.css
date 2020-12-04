@@ -1,3 +1,10 @@
+.h1{
+    font-size: large;
+    color: darkmagenta;
+    margin-bottom: 50px;
+
+}
+
 .form{
     margin: auto;
 }
