@@ -152,7 +152,7 @@ function removeItem(){
         if (e.target.classList.contains("remove")){
             e.target.parentElement.parentElement.remove()
             const totalPrice = document.getElementsByClassName('cart-total-price')[0]
-            totalPrice.innerHTML = 0
+            totalPrice.innerHTML = ""
         }
     })
 }
@@ -197,15 +197,10 @@ function changeTotal(){
         }
         
     })
-    // if (e.target.classList.contains("minus")){
-    //     let itemQuantity = parseInt(e.target.parentElement.previousElementSibling.innerHTML, 10)
-    //     let itemPrice = e.target.parentElement.parentElement.children[1].innerHTML
-        
-
-    //     const totalPrice = document.getElementsByClassName('cart-total-price')[0]
-    //     totalPrice.innerHTML = (itemPrice * itemQuantity)
+   
     }
 
+    
      
      function updateCartTotal(){
         const totalPrice = document.getElementsByClassName('cart-total-price')[0]
@@ -224,8 +219,7 @@ function changeTotal(){
 
     
 
-// const api = new ApiService("http://localhost:3000")
-// console.log(api)
+
 });
 
 //Build code for each item. 
