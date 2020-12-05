@@ -1,4 +1,4 @@
-// const app = new App()
+const api = new ApiService('http://localhost:3000/api/v1')
 
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
