@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     addToCart()
     removeItem()
     changeTotal()
+    attachEventListenerForNewProduct()
     
 
 
@@ -37,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-    createItem = (data) => {
+    function createItem(data) {
         const config = {
             method: "POST",
             headers: {
@@ -51,11 +52,21 @@ window.addEventListener('DOMContentLoaded', () => {
     
   
 
-    renderInnerHTML = () => {
-        return ``
-        
-    }
+   function attachEventListenerForNewProduct() {
+       const form = document.getElementById('add-form')
+       form.addEventListener("submit", handleOnSubmit)
+   }
 
+   function handleOnSubmit(event) {
+       event.preventDefault();
+       const {name, price, image} = event.target
+       const data = {
+           name: name.value,
+           price: price.value,
+           image: image.value
+       };
+       createItem(data).then((item) => renderItemCard(item))
+   }
 
     function fetchItemsByCategory(event){
         event.preventDefault()
@@ -66,6 +77,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     
+function renderItemCard(item) {
+    let main = document.querySelector('main')
+    main.innerHTML += (itemCard(item))
+}
 
 function renderItemCards(items){
     let main = document.querySelector('main')
