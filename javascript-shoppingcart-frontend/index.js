@@ -1,4 +1,4 @@
-const api = new ApiService('http://localhost:3000/api/v1')
+// const app = new App()
 
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
@@ -15,7 +15,29 @@ window.addEventListener('DOMContentLoaded', () => {
     attachEventListenerForNewProduct()
     
 
+class Item{
+    constructor(itemAttributes){
+        this.name = itemAttributes.name;
+        this.price = itemAttributes.price;
+        this.image = itemAttributes.image;
+        this.quantity = itemAttributes.quantity;
+        this.category_id = itemAttributes.category_id;
+    }
 
+    itemCard() {
+
+        return `<div class ="card">
+        <div class ="header" data-id="${this.id}"> <p>${this.name}</p>
+        <img src="${this.image}" height="150" width="200" alt="" >
+        <p class="price">${this.price}</p>
+        <p class="quantity">${this.quantity}</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" id="${this.id}" class="add btn btn-secondary">Add to Cart</button>
+        
+                  </div>`
+    
+    }
+}
 
 
     function attachSelectCategoryListener() {
@@ -87,26 +109,12 @@ function renderItemCards(items){
     main.innerHTML = ""
 
     items.forEach((item, idx) => {
-        main.innerHTML += (itemCard(item, idx))
+        main.innerHTML += new Item(item).itemCard()
         
     })
 }
 
 
-
-function itemCard(item, idx){
-
-    return `<div class ="card">
-    <div class ="header" data-id="${idx}"> <p>${item.name}</p>
-    <img src="${item.image}" height="150" width="200" alt="" >
-    <p class="price">${item.price}</p>
-    <p class="quantity">${item.quantity}</p>
-    <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" id="${idx}" class="add btn btn-secondary">Add to Cart</button>
-    
-              </div>`
-
-}
 
 
 
