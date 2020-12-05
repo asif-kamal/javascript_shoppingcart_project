@@ -101,7 +101,7 @@ class Item{
     
 function renderItemCard(item) {
     let main = document.querySelector('main')
-    main.innerHTML += (itemCard(item))
+    main.innerHTML += new Item(item).itemCard()
 }
 
 function renderItemCards(items){
