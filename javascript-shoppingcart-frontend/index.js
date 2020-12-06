@@ -1,43 +1,24 @@
 // const app = new App()
+const api = new ApiService("http://localhost:3000/api/v1");
 
 const BACKEND_URL = 'http://localhost:3000';
 const ITEMS_URL = `${BACKEND_URL}/api/v1/items`;
 const CATEGORIES_URL = `${BACKEND_URL}/api/v1/categories`
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetchItems()
+    
+    Item.getAll();
+    new ItemForm();
     
     attachSelectCategoryListener()
     changeQuantity()
     addToCart()
     removeItem()
     changeTotal()
-    attachEventListenerForNewProduct()
+    
     
 
-class Item{
-    constructor(itemAttributes){
-        this.name = itemAttributes.name;
-        this.price = itemAttributes.price;
-        this.image = itemAttributes.image;
-        this.quantity = itemAttributes.quantity;
-        this.category_id = itemAttributes.category_id;
-    }
 
-    itemCard() {
-
-        return `<div class ="card">
-        <div class ="header" data-id="${this.id}"> <p>${this.name}</p>
-        <img src="${this.image}" height="150" width="200" alt="" >
-        <p class="price">${this.price}</p>
-        <p class="quantity">${this.quantity}</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" id="${this.id}" class="add btn btn-secondary">Add to Cart</button>
-        
-                  </div>`
-    
-    }
-}
 
 
     function attachSelectCategoryListener() {
@@ -51,44 +32,7 @@ class Item{
 
 
 
-    function fetchItems() {
-        fetch (`${ITEMS_URL}`)
-        .then(response => response.json())
-        .then(data => renderItemCards(data));
-    }
 
-
-
-
-    function createItem(data) {
-        const config = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
-        body: JSON.stringify(data),
-    };
-    return fetch(`${ITEMS_URL}`, config).then((res) => res.json());
-};
-    
-  
-
-   function attachEventListenerForNewProduct() {
-       const form = document.getElementById('add-form')
-       form.addEventListener("submit", handleOnSubmit)
-   }
-
-   function handleOnSubmit(event) {
-       event.preventDefault();
-       const {name, price, image} = event.target
-       const data = {
-           name: name.value,
-           price: price.value,
-           image: image.value
-       };
-       createItem(data).then((item) => renderItemCard(item))
-   }
 
     function fetchItemsByCategory(event){
         event.preventDefault()
@@ -99,10 +43,10 @@ class Item{
     }
 
     
-function renderItemCard(item) {
-    let main = document.querySelector('main')
-    main.innerHTML += new Item(item).itemCard()
-}
+// function renderItemCard(item) {
+//     let main = document.querySelector('main')
+//     main.innerHTML += new Item(item).itemCard()
+// }
 
 function renderItemCards(items){
     let main = document.querySelector('main')
