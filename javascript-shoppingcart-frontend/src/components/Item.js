@@ -8,7 +8,7 @@ class Item {
         this.image = item.image;
         this.quantity = item.quantity;
         this.category_id = item.category_id
-        this.item = item;
+       
         this.renderItemCard();
        
         
